@@ -3,4 +3,5 @@
 *.class
 *.jar
 *.log
+*.rdb
 .DS_Store
