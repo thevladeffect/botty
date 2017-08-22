@@ -39,6 +39,12 @@ public class Main {
         String message = request.queryParams("message");
         String uid = request.queryParams("uid");
 
+        if(message == null) {
+            String reply = "I'm sorry, I can't seem to hear you";
+            log.info("Responded: " + reply);
+            return reply;
+        }
+
         log.info("Received: " + message);
 
         if (message.matches(weatherString)) {
