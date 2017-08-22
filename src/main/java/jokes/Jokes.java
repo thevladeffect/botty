@@ -3,7 +3,9 @@ package jokes;
 import redis.clients.jedis.Jedis;
 
 public class Jokes {
-    private static Jedis jedis = new Jedis("localhost");
+
+    private static String redisUrl = System.getenv("REDIS_URL");
+    private static Jedis jedis = new Jedis(redisUrl == null ? "localhost" : redisUrl);
 
     public static String getJoke(int no, String uid) {
 

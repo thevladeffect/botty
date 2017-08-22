@@ -16,8 +16,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        String port = System.getenv("PORT");
+        port(port == null ? 9999 : Integer.parseInt(port));
+
         exception(Exception.class, (e, req, res) -> e.printStackTrace());
-        port(9999);
         Jokes.createJokes();
         log.info("Jokes created.");
 
